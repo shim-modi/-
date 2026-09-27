@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>منصة رياضيات ثاني ثانوي</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ==============================
+     شاشة الدخول
+================================ -->
+
+<div id="loginPage" class="login-page">
+
+    <div class="login-card">
+
+        <div class="logo">∑</div>
+
+        <h1>منصة رياضيات ثاني ثانوي</h1>
+
+        <p>
+            أدخل بياناتك للبدء
+        </p>
+
+        <div class="login-buttons">
+
+            <button
+                class="primary-btn"
+                onclick="showStudentLogin()">
+                👨‍🎓 دخول الطالب
+            </button>
+
+            <button
+                class="teacher-btn"
+                onclick="showTeacherLogin()">
+                👩‍🏫 دخول المعلمة
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ==============================
+     دخول الطالب
+================================ -->
+
+<div id="studentLogin" class="login-page hidden">
+
+    <div class="login-card">
+
+        <button
+            class="back-btn"
+            onclick="backToLogin()">
+            ← رجوع
+        </button>
+
+        <div class="logo blue">👨‍🎓</div>
+
+        <h2>دخول الطالب</h2>
+
+        <label>
+            اسم الطالب
+        </label>
+
+        <input
+            id="studentName"
+            type="text"
+            placeholder="اكتب اسمك">
+
+        <label>
+            رقم الطالب
+        </label>
+
+        <input
+            id="studentNumber"
+            type="text"
+            placeholder="مثال: 20250123">
+
+        <button
+            class="primary-btn full"
+            onclick="studentLogin()">
+            دخول إلى المنصة
+        </button>
+
+        <p id="studentError"
+           class="error">
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- ==============================
+     دخول المعلمة
+================================ -->
+
+<div id="teacherLogin" class="login-page hidden">
+
+    <div class="login-card">
+
+        <button
+            class="back-btn"
+            onclick="backToLogin()">
+            ← رجوع
+        </button>
+
+        <div class="logo purple">👩‍🏫</div>
+
+        <h2>دخول المعلمة</h2>
+
+        <label>
+            كلمة المرور
+        </label>
+
+        <input
+            id="teacherPassword"
+            type="password"
+            placeholder="كلمة المرور">
+
+        <button
+            class="primary-btn full"
+            onclick="teacherLogin()">
+            دخول
+        </button>
+
+        <p id="teacherError"
+           class="error">
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- ==============================
+     منصة الطالب
+================================ -->
+
+<div id="studentPlatform"
+     class="hidden">
+
+    <header class="topbar">
+
+        <div>
+
+            <h2>
+                📚 رياضيات ثاني ثانوي
+            </h2>
+
+            <span id="welcomeStudent">
+            </span>
+
+        </div>
+
+        <button
+            class="logout-btn"
+            onclick="logout()">
+            خروج
+        </button>
+
+    </header>
+
+
+    <main class="student-main">
+
+        <div class="dashboard-title">
+
+            <h1>
+                أهلاً بك 👋
+            </h1>
+
+            <p>
+                اختر ما تريد مراجعته
+            </p>
+
+        </div>
+
+
+        <div class="cards">
+
+            <div
+                class="dashboard-card"
+                onclick="openStudentSection('tools')">
+
+                <span>🧮</span>
+
+                <h3>
+                    أدوات الرياضيات
+                </h3>
+
+                <p>
+                    حاسبة المعادلات والمصفوفات
+                    ورسم الدوال.
+                </p>
+
+            </div>
+
+
+            <div
+                class="dashboard-card"
+                onclick="openStudentSection('flashcards')">
+
+                <span>🃏</span>
+
+                <h3>
+                    بطاقات المراجعة
+                </h3>
+
+                <p>
+                    راجع أهم المفاهيم والقوانين.
+                </p>
+
+            </div>
+
+
+            <div
+              .., [16/04/48 10:02 ص]
+class="dashboard-card"
+                onclick="openStudentSection('exam')">
+
+                <span>📝</span>
+
+                <h3>
+                    الاختبار الشامل
+                </h3>
+
+                <p>
+                    اختبر نفسك من الأبواب الثمانية.
+                </p>
+
+            </div>
+
+
+            <div
+                class="dashboard-card"
+                onclick="openStudentSection('laws')">
+
+                <span>📚</span>
+
+                <h3>
+                    القوانين
+                </h3>
+
+                <p>
+                    ملخص سريع لأهم القوانين.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- الأدوات -->
+
+        <section
+            id="studentTools"
+            class="student-section hidden">
+
+            <h2>
+                🧮 أدوات الرياضيات
+            </h2>
+
+            <div class="calculator">
+
+                <h3>
+                    حاسبة المعادلة التربيعية
+                </h3>
+
+                <div class="inputs">
+
+                    <input
+                        id="a"
+                        type="number"
+                        value="1"
+                        placeholder="a">
+
+                    <input
+                        id="b"
+                        type="number"
+                        value="-5"
+                        placeholder="b">
+
+                    <input
+                        id="c"
+                        type="number"
+                        value="6"
+                        placeholder="c">
+
+                </div>
+
+                <button
+                    class="primary-btn"
+                    onclick="solveEquation()">
+                    حل المعادلة
+                </button>
+
+                <div
+                    id="equationResult"
+                    class="result">
+                </div>
+
+            </div>
+
+
+            <div class="calculator">
+
+                <h3>
+                    حاسبة المصفوفة 2×2
+                </h3>
+
+                <div class="matrix">
+
+                    <input
+                        id="m11"
+                        type="number"
+                        value="1">
+
+                    <input
+                        id="m12"
+                        type="number"
+                        value="2">
+
+                    <input
+                        id="m21"
+                        type="number"
+                        value="3">
+
+                    <input
+                        id="m22"
+                        type="number"
+                        value="4">
+
+                </div>
+
+                <button
+                    class="primary-btn"
+                    onclick="solveMatrix()">
+                    حساب المحدد
+                </button>
+
+                <div
+                    id="matrixResult"
+                    class="result">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- البطاقات -->
+
+        <section
+            id="studentFlashcards"
+            class="student-section hidden">
+
+            <h2>
+                🃏 بطاقات المراجعة
+            </h2>
+
+            <div
+                id="flashcard"
+                class="flashcard"
+                onclick="flipCard()">
+
+                <div id="flashQuestion">
+                    ما هو المميز؟
+                </div>
+
+                <div
+                    id="flashAnswer"
+                    class="flash-answer">
+                    Δ = b² - 4ac
+                </div>
+
+            </div>
+
+            <button
+                class="primary-btn"
+                onclick="nextCard()">
+                بطاقة جديدة
+            </button>
+
+        </section>
+
+
+        <!-- الاختبار -->
+
+        <section
+            id="studentExam"
+            class="student-section hidden">
+
+            <h2>
+                📝 الاختبار الشامل
+            </h2>
+
+            <div class="exam-card">
+
+                <p id="questionNumber">
+                    السؤال 1
+                </p>
+
+                <h3 id="question">
+                    ...
+                </h3>
+
+                <div
+
+.., [16/04/48 10:02 ص]
+id="options"
+                    class="options">
+                </div>
+
+                <button
+                    class="primary-btn"
+                    onclick="nextQuestion()">
+                    التالي
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- القوانين -->
+
+        <section
+            id="studentLaws"
+            class="student-section hidden">
+
+            <h2>
+                📚 القوانين
+            </h2>
+
+            <div class="law-grid">
+
+                <div class="law">
+                    <h3>
+                        المميز
+                    </h3>
+
+                    <p>
+                        Δ = b² - 4ac
+                    </p>
+                </div>
+
+                <div class="law">
+                    <h3>
+                        القانون العام
+                    </h3>
+
+                    <p>
+                        x = (-b ± √Δ) / 2a
+                    </p>
+                </div>
+
+                <div class="law">
+                    <h3>
+                        محدد المصفوفة
+                    </h3>
+
+                    <p>
+                        ad - bc
+                    </p>
+                </div>
+
+                <div class="law">
+                    <h3>
+                        الدالة الخطية
+                    </h3>
+
+                    <p>
+                        f(x) = mx + b
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- ==============================
+     لوحة المعلمة
+================================ -->
+
+<div id="teacherDashboard"
+     class="hidden">
+
+    <header class="teacher-header">
+
+        <div>
+            <h2>
+                👩‍🏫 لوحة المعلمة
+            </h2>
+
+            <p>
+                متابعة الطلاب والنتائج
+            </p>
+        </div>
+
+        <button
+            class="logout-btn"
+            onclick="logout()">
+            خروج
+        </button>
+
+    </header>
+
+
+    <main class="teacher-main">
+
+        <div class="teacher-actions">
+
+            <button
+                class="primary-btn"
+                onclick="exportExcel()">
+                📊 تصدير Excel
+            </button>
+
+            <button
+                class="secondary-btn"
+                onclick="clearStudentData()">
+                🗑️ مسح البيانات
+            </button>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            #
+                        </th>
+
+                        <th>
+                            اسم الطالب
+                        </th>
+
+                        <th>
+                            رقم الطالب
+                        </th>
+
+                        <th>
+                            وقت الدخول
+                        </th>
+
+                        <th>
+                            الدرجة
+                        </th>
+
+                        <th>
+                            النسبة
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody
+                    id="studentsTable">
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
+              
