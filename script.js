@@ -652,17 +652,16 @@ function showQuestion() {
 
 
     document.getElementById(
-        "questionNumber"
-    ).textContent =
-       document.getElementById(
-            "equationResult"
-   ).textContent;
-
-
+    "questionNumber"
+).textContent =
     document.getElementById(
-        "question"
-    ).textContent =
-        q.question;
+        "equationResult"
+    ).textContent;
+
+document.getElementById(
+    "question"
+).textContent =
+    q.question;
 
 
     const options =
