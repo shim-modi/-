@@ -656,7 +656,7 @@ function showQuestion() {
     ).textContent =
        document.getElementById(
             "equationResult"
-  
+   ).textContent;
 
 
     document.getElementById(
