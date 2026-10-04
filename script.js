@@ -742,9 +742,7 @@ function finishExam() {
     saveStudent();
 
 
-    alert(
-               "14"
-        ],
+    alert("تم أنهاء الاختبار بنجاح");
 
         answer: 2
     },
