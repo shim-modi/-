@@ -2,6 +2,16 @@
 /* =========================================
    بيانات المنصة
 ========================================= */
+// Supabase
+const SUPABASE_URL =" https://xyxlbrvxvjwwdhfhdjvd.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY ="sb_publishable_I_KdKIYT_n21zLnr9oFSYQ_xZYJk-GZ";
+
+const supabaseClient = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_PUBLISHABLE_KEY
+);
+
+console.log("Supabase connected");
 
 const TEACHER_PASSWORD = "1234";
 
