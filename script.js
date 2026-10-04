@@ -1,9 +1,9 @@
-.., [16/04/48 10:09 ص]
+
 /* =========================================
    بيانات المنصة
 ========================================= */
 // Supabase
-const SUPABASE_URL =" https://xyxlbrvxvjwwdhfhdjvd.supabase.co";
+const SUPABASE_URL ="https://xyxlbrvxvjwwdhfhdjvd.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY ="sb_publishable_I_KdKIYT_n21zLnr9oFSYQ_xZYJk-GZ";
 
 const supabaseClient = window.supabase.createClient(
