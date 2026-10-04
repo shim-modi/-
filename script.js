@@ -570,7 +570,7 @@ const flashcards = [
         answer:
             "f(x) = mx + b"
 
-.., [16/04/48 10:09 ص]
+
 }
 
 ];
