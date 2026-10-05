@@ -985,3 +985,6 @@ function logout() {
 console.log(
     "منصة رياضيات ثاني ثانوي تعمل."
 );
+
+window.showStudentLogin = showStudentLogin;
+window.showTeacherLogin = showTeacherLogin;
