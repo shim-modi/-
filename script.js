@@ -797,72 +797,64 @@ students.forEach((student, index) => {
 ========================================= */
 
 function exportExcel() {
+const students = getStudents();
 
-    const students =
-        getStudents();
+if (students.length === 0) {
 
+    alert("لا توجد بيانات لتصديرها.");
 
-    if (students.length === 0) {
+    return;
+}
 
-        alert(
-            "لا توجد بيانات لتصديرها."
+let csv = "\uFEFF";
+
+csv +=
+    "اسم الطالب,رقم الطالب,وقت الدخول,الدرجة,النسبة\n";
+
+students.forEach(student => {
+
+    let percentage = "";
+
+    if (
+        student.score !== null &&
+        student.total > 0
+    ) {
+        percentage = Math.round(
+            (student.score / student.total) * 100
         );
-
-        return;
     }
 
-
-    let csv =
-        "\uFEFF";
-
-
     csv +=
-        "اسم الطالب,رقم الطالب,وقت الدخول,الدرجة,النسبة\n";
-
-
-    students.forEach(
-        student => {
-
-            const percentage =
-                student.score !== null
-
-                ?
-
-                Math.round(
-                    (
-                        student.score /
-                        student.total
-                    ) * 100
-                )
-
-                :
-
-                "";
-
-
-            csv +=
-        `"${student.name}","${student.number}","${student.loginTime}","${student.score ?? ""}","${percentage}%"\n`;
+        '"' +
+        student.name + '","' +
+        student.number + '","' +
+        student.loginTime + '","' +
+        (student.score ?? "") + '","' +
+        percentage + '%"\n';
 });
 
 const blob = new Blob(
     [csv],
-    { type: "text/csv;charset=utf-8;" }
+    {
+        type: "text/csv;charset=utf-8;"
+    }
 );
 
-const url = URL.createObjectURL(blob);
+const url =
+    URL.createObjectURL(blob);
 
-const link = document.createElement("a");
+const link =
+    document.createElement("a");
 
 link.href = url;
 
-link.download = "بيانات-الطلاب.csv";
+link.download =
+    "بيانات-الطلاب.csv";
 
 link.click();
 
 URL.revokeObjectURL(url);
 }
-
-
 /* =========================================
    مسح البيانات
 ========================================= */
