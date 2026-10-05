@@ -750,111 +750,48 @@ function finishExam() {
    لوحة المعلمة
 ========================================= */
 
-function loadStudentsTable() {
+function loadStudentsTable() { const students = getStudents(); const table = document.getElementById("studentsTable");
+if (!table) return;
 
-    const students =
-        getStudents();
+table.innerHTML = "";
 
+students.forEach((student, index) => {
+    const row = document.createElement("tr");
 
-    const table =
-        document.getElementById(
-            "studentsTable"
+    let percentage = "-";
+
+    if (
+        student.score !== null &&
+        student.total > 0
+    ) {
+        percentage = Math.round(
+            (student.score / student.total) * 100
         );
-
-
-    table.innerHTML = "";
-
-
-    if (students.length === 0) {
-
-        table.innerHTML = `
-
-            <tr>
-
-                <td colspan="6"
-                    style="text-align:center">
-
-                    لا توجد بيانات طلاب حتى الآن.
-
-                </td>
-
-            </tr>
-
-        `;
-
-        return;
     }
 
-
-    students.forEach(
-        (student, index) => {
-
-            const percentage =
+    row.innerHTML =
+        "<td>" + (index + 1) + "</td>" +
+        "<td>" + student.name + "</td>" +
+        "<td>" + student.number + "</td>" +
+        "<td>" + student.loginTime + "</td>" +
+        "<td>" +
+            (
                 student.score !== null
+                    ? student.score
+                    : "لم يختبر"
+            ) +
+        "</td>" +
+        "<td>" +
+            (
+                percentage === "-"
+                    ? "-"
+                    : percentage + "%"
+            ) +
+        "</td>";
 
-                ?
-
-                Math.round(
-                    (
-                        student.score /
-                        student.total
-                    ) * 100
-                )
-
-                : "-";
-
-
-            const row =
-                document.createElement(
-                    "tr"
-                );
-
-
-            row.innerHTML = `
-
-                <td>
-                    ${index + 1}
-                </td>
-
-                <td>
-                    ${student.name}
-                </td>
-
-                <td>
-                    ${student.number}
-                </td>
-
-                <td>
-                    ${student.loginTime}
-                </td>
-
-                <td>
-    ${
-        student.score !== null
-            ? student.score
-            : "لم يختبر"
-    }
-</td>
-
-<td>
-    ${
-        percentage === "-"
-        ? "-"
-        : percentage + "%"
-    }
-</td>
-
-            `;
-
-
-            table.appendChild(row);
-
-        }
-    );
-
+    table.appendChild(row);
+});
 }
-
-
 /* =========================================
    تصدير Excel
 ========================================= */
