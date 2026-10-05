@@ -904,49 +904,25 @@ function exportExcel() {
 
 
             csv +=
-               ions: [
-            "2+
-               ========================+
-               ===========================+
-               ===========================
-   بيانات المنصة
-=+
-               ======================
+        `"${student.name}","${student.number}","${student.loginTime}","${student.score ?? ""}","${percentage}%"\n`;
+});
 
-        }
-    );
+const blob = new Blob(
+    [csv],
+    { type: "text/csv;charset=utf-8;" }
+);
 
+const url = URL.createObjectURL(blob);
 
-    const blob =
-        new Blob(
-            [csv],
-            {
-                type:
-                    "text/csv;charset=utf-8;"
-            }
-        );
+const link = document.createElement("a");
 
+link.href = url;
 
-    const url =
-        URL.createObjectURL(blob);
+link.download = "بيانات-الطلاب.csv";
 
+link.click();
 
-    const link =
-        document.createElement("a");
-
-
-    link.href = url;
-
-
-    link.download =
-        "طلاب_رياضيات.csv";
-
-
-    link.click();
-
-
-    URL.revokeObjectURL(url);
-
+URL.revokeObjectURL(url);
 }
 
 
