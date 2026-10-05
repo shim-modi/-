@@ -831,25 +831,18 @@ function loadStudentsTable() {
                 <td>
                     ${
                         student.score !== null
-                        ?
-                       ("hidden");
+        ? student.score
+        : "لم يختبر"
+    }
+</td>
 
-    document
-        .getE                        :
-                        "لم يختبر"
-                    }
-                </td>
-
-                <td>
-                    ${
-                        percentage === "-"
-                        ?
-                        "-"
-
-:
-                        percentage + "%"
-                    }
-                </td>
+<td>
+    ${
+        percentage === "-"
+        ? "-"
+        : percentage + "%"
+    }
+</td>
 
             `;
 
