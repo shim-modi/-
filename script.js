@@ -829,10 +829,10 @@ function loadStudentsTable() {
                 </td>
 
                 <td>
-                    ${
-                        student.score !== null
-        ? student.score
-         "لم يختبر" :
+    ${
+        student.score !== null
+            ? student.score
+            : "لم يختبر"
     }
 </td>
 
