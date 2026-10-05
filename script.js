@@ -832,7 +832,7 @@ function loadStudentsTable() {
                     ${
                         student.score !== null
         ? student.score
-        : "لم يختبر"
+         "لم يختبر" :
     }
 </td>
 
