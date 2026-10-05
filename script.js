@@ -916,4 +916,4 @@ console.log(
 );
 
 window.showStudentLogin = showStudentLogin;
-window.showTeacherLogin = showTeacherLogin;
+window.showTeacherLogin = showTeacherLogin;} 
